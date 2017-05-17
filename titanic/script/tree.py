@@ -67,3 +67,14 @@ for itr in range(0, len(exp_result)):
 		
 
 print("Result : {} of {} ({}%) are true".format(score,len(exp_result), score*100/len(exp_result)))
+
+# write the result to ../data/result.csv
+rs_file = "../data/result.csv"
+
+with open(rs_file,"wt",newline='') as file:
+	fieldnames = ["PassengerId","Survived"]
+	writer = csv.writer(file)
+	writer.writerow(fieldnames)
+	for itr in range(0, len(result)):
+		writer.writerow([test_class_list[itr+1][0], result[itr]])
+		
